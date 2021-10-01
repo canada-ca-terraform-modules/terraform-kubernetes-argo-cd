@@ -38,6 +38,7 @@ projects:
     podLabels:
       data.statcan.gc.ca/classification: ${project.classification}
     spec:
+      kustomizeBuildOptions: ${project.spec.kustomizeBuildOptions}
       oidcConfig:
         name: ${project.spec.oidcConfig.name}
         issuer: ${project.spec.oidcConfig.issuer}

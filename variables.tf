@@ -23,6 +23,7 @@ variable "argocd_projects" {
     namespace      = string
     classification = string
     spec = object({
+      kustomizeBuildOptions = string
       oidcConfig = object({
         name         = string
         issuer       = string
