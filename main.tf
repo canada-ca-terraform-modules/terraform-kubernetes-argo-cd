@@ -1,5 +1,5 @@
-resource "helm_release" "argocd_operator" {
-  name = "argocd-operator"
+resource "helm_release" "argo_cd" {
+  name = "argo-cd"
 
   repository          = var.helm_repository
   repository_username = var.helm_repository_username
@@ -13,10 +13,10 @@ resource "helm_release" "argocd_operator" {
   values = [<<EOF
 operator:
   clusterDomain: ""
-  nsToWatch: "argocd-operator-system,daaas-system,org-ces-system,org-fdi-system,org-geo-system"
+  nsToWatch: ""
   image:
     repository: statcan/argocd-operator
-    tag: v0.0.6
+    tag: v0.1.0
     pullPolicy: IfNotPresent
   imagePullSecrets: []
   replicaCount: 1
@@ -32,14 +32,14 @@ operator:
       ephemeral-storage: 500Mi
 
 projects:
-%{for project in var.argocd_projects~}
+%{for project in var.projects~}
   - name: ${project.name}
     namespace: ${project.namespace}
     podLabels:
       data.statcan.gc.ca/classification: ${project.classification}
     spec:
       kustomizeBuildOptions: ${project.spec.kustomizeBuildOptions}
-      oidcConfig:
+      oidcConfig: |
         name: ${project.spec.oidcConfig.name}
         issuer: ${project.spec.oidcConfig.issuer}
         clientID: ${project.spec.oidcConfig.clientID}

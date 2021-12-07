@@ -13,11 +13,12 @@ variable "helm_repository_username" {
 }
 
 variable "chart_version" {
-  default = "0.0.5"
+  default = "0.1.2"
 }
 
-variable "argocd_projects" {
+variable "projects" {
   description = "Defines a list of ArgoCD Projects to deploy."
+  default     = []
   type = list(object({
     name           = string
     namespace      = string
@@ -50,4 +51,9 @@ variable "argocd_projects" {
       })
     })
   }))
+}
+
+variable "values" {
+  default = ""
+  type    = string
 }

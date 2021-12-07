@@ -1,0 +1,59 @@
+// For format details, see https://aka.ms/vscode-remote/devcontainer.json or this file's README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/main/containers/docker-from-docker
+{
+  "name": "argo-cd",
+
+  "build": {
+    "dockerfile": "Dockerfile",
+    "args": {
+      "INSTALL_ZSH": "true",
+      "INSTALL_OH_MYS": "true"
+    }
+  },
+
+  "runArgs": [
+    "--init",
+
+    "--cap-add=SYS_PTRACE",
+    "--cap-add=NET_ADMIN",
+    "--cap-add=NET_BIND_SERVICE",
+    "--network=host",
+    // Uncomment the next line if you will be using a ptrace-based debugger like C++, Go, and Rust.
+    "--privileged",
+    "--security-opt",
+    "seccomp=unconfined"
+  ],
+  "mounts": [
+    "source=/var/run/docker.sock,target=/var/run/docker-host.sock,type=bind"
+  ],
+  "overrideCommand": false,
+
+  // Use this environment variable if you need to bind mount your local source code into a new container.
+  "remoteEnv": {
+    "LOCAL_WORKSPACE_FOLDER": "${localWorkspaceFolder}"
+  },
+
+  "settings": {
+    "editor.tabSize": 2,
+		"terminal.integrated.shell.linux": "/bin/zsh",
+		"go.toolsManagement.checkForUpdates": "local",
+		"go.gopath": "/home/vscode/go",
+		"go.useLanguageServer": true,
+		"gopls": {
+			"usePlaceholders": false,
+			"staticcheck": true
+		}
+  },
+
+  // Add the IDs of extensions you want installed when the container is created.
+  "extensions": ["hashicorp.terraform", "golang.go"],
+
+  // Use 'forwardPorts' to make a list of ports inside the container available locally.
+  // "forwardPorts": [],
+
+  // Use 'postCreateCommand' to run commands after the container is created.
+  // "postCreateCommand": "docker --version",
+
+  // Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+  "remoteUser": "vscode"
+}
