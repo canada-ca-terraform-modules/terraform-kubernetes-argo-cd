@@ -45,8 +45,6 @@ No Modules.
 | projects                 | list   | no       | Defines a list of ArgoCD Projects to deploy                   |
 | values                   | string | no       | Values to be passed to the Helm Chart                         |
 
-Defines a list of ArgoCD Projects to deploy.
-
 # Outputs
 
 | Name           | Description              |

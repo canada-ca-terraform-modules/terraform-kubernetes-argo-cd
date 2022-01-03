@@ -38,6 +38,8 @@ projects:
     podLabels:
       data.statcan.gc.ca/classification: ${project.classification}
     spec:
+      image: ${project.spec.image.repository}
+      version: ${project.spec.image.tag}
       kustomizeBuildOptions: ${project.spec.kustomizeBuildOptions}
       oidcConfig: |
         name: ${project.spec.oidcConfig.name}
@@ -48,6 +50,12 @@ projects:
           groups:
             essential: ${project.spec.oidcConfig.requestedIDTokenClaims.groups.essential}
         requestedScopes: ${jsonencode(project.spec.oidcConfig.requestedScopes)}
+      dex:
+        image: ${project.spec.dex.repository}
+        version: ${project.spec.dex.tag}
+      redis:
+        image: ${project.spec.redis.repository}
+        version: ${project.spec.redis.tag}
       rbac:
         defaultPolicy: ${project.spec.rbac.defaultPolicy}
         policy: ${jsonencode(project.spec.rbac.policy)}

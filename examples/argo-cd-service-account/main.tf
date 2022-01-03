@@ -43,7 +43,7 @@ module "argo_cd_service_account" {
       classification = "unclassified"
       spec = {
         image = {
-          repository = "argoproj/argocd"
+          repository = "quay.io/argoproj/argocd"
           tag        = "sha256:0bbcd97134f2d7c28293d4b717317f32aaf8fa816a1ffe764c1ebc390c4646d3"
         },
         kustomizeBuildOptions = "--load-restrictor LoadRestrictionsNone --enable-helm",
@@ -58,6 +58,14 @@ module "argo_cd_service_account" {
             }
           }
           requestedScopes = ["openid", "profile", "email"]
+        },
+        dex = {
+          repository = "quay.io/dexidp/dex"
+          tag        = "sha256:77bfea96e8d8f3e4197b9f6020c8f5dedbb701245c19afd69a15747ae4bf2804"
+        },
+        redis = {
+          repository = "redis"
+          tag        = "6.2.6"
         },
         rbac = {
           defaultPolicy = "role:readonly"

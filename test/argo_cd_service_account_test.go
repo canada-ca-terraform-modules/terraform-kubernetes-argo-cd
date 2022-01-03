@@ -12,7 +12,7 @@ import (
 // Test using test_structure, which allows sections of the tests to be skipped
 // if a `SKIP_stage_name=true` environment variable is set.  This allows for
 // selectively skipping long running test steps like terraform apply/destroy.
-func TestArgoWorkflowsServiceAccount(t *testing.T) {
+func TestArgoCDServiceAccount(t *testing.T) {
 	t.Parallel()
 
 	workingDir := "../examples/argo-cd-service-account"

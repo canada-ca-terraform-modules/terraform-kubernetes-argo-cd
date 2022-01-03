@@ -24,6 +24,10 @@ variable "projects" {
     namespace      = string
     classification = string
     spec = object({
+      image = object({
+        repository = string
+        tag        = string
+      })
       kustomizeBuildOptions = string
       oidcConfig = object({
         name         = string
@@ -36,6 +40,14 @@ variable "projects" {
           })
         })
         requestedScopes = list(string)
+      })
+      dex = object({
+        repository = string
+        tag        = string
+      })
+      redis = object({
+        repository = string
+        tag        = string
       })
       rbac = object({
         defaultPolicy = string
