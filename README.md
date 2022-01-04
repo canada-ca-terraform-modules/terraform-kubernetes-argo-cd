@@ -62,8 +62,9 @@ task k3d:test
 
 ## History
 
-| Date     | Release | Change                         |
-| -------- | ------- | ------------------------------ |
-| 20211206 | v2.0.0  | Refactor and addition of tests |
-| 20211011 | v1.0.1  | Add kustomize build options    |
-| 20210719 | v1.0.0  | Initial v1.0.0 release         |
+| Date     | Release | Change                              |
+| -------- | ------- | ----------------------------------- |
+| 20220105 | v2.1.0  | Alllow to pass different containers |
+| 20211206 | v2.0.0  | Refactor and addition of tests      |
+| 20211011 | v1.0.1  | Add kustomize build options         |
+| 20210719 | v1.0.0  | Initial v1.0.0 release              |
