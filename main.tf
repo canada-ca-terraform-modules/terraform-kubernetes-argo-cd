@@ -15,8 +15,8 @@ operator:
   clusterDomain: ""
   nsToWatch: ""
   image:
-    repository: statcan/argocd-operator
-    tag: v0.1.0
+    repository: quay.io/argoprojlabs/argocd-operator
+    tag: v0.3.0
     pullPolicy: IfNotPresent
   imagePullSecrets: []
   replicaCount: 1
@@ -67,5 +67,7 @@ projects:
         insecure: ${project.spec.server.insecure}
 %{endfor~}
 EOF
+
+    , var.values,
   ]
 }
