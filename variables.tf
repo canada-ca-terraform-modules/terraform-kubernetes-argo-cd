@@ -1,3 +1,9 @@
+# Variables
+
+###############
+### General ###
+###############
+
 variable "helm_namespace" {}
 
 variable "helm_repository" {
@@ -12,60 +18,11 @@ variable "helm_repository_username" {
   default = ""
 }
 
-variable "chart_version" {
+variable "helm_chart_version" {
   default = "0.1.2"
 }
 
-variable "projects" {
-  description = "Defines a list of ArgoCD Projects to deploy."
-  default     = []
-  type = list(object({
-    name           = string
-    namespace      = string
-    classification = string
-    spec = object({
-      image = object({
-        repository = string
-        tag        = string
-      })
-      kustomizeBuildOptions = string
-      oidcConfig = object({
-        name         = string
-        issuer       = string
-        clientID     = string
-        clientSecret = string
-        requestedIDTokenClaims = object({
-          groups = object({
-            essential = bool
-          })
-        })
-        requestedScopes = list(string)
-      })
-      dex = object({
-        repository = string
-        tag        = string
-      })
-      redis = object({
-        repository = string
-        tag        = string
-      })
-      rbac = object({
-        defaultPolicy = string
-        policy        = string
-        scopes        = string
-      })
-      server = object({
-        autoscale = object({
-          enabled = bool
-        })
-        host     = string
-        insecure = bool
-      })
-    })
-  }))
-}
-
-variable "values" {
+variable "helm_values" {
   default = ""
   type    = string
 }
