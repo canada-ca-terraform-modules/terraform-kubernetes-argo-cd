@@ -63,7 +63,7 @@ task k3d:test
 
 | Date     | Release | Change                                 |
 | -------- | ------- | -------------------------------------- |
-| 20220908 | v3.1.0  | Align with upstream helm chart changes |
+| 20220908 | v3.0.0  | Align with upstream helm chart changes |
 | 20220105 | v2.1.0  | Allow to pass different containers     |
 | 20211206 | v2.0.0  | Refactor and addition of tests         |
 | 20211011 | v1.0.1  | Add kustomize build options            |
