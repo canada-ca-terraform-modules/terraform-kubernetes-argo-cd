@@ -35,15 +35,14 @@ No Modules.
 
 | Name                     | Type   | Required | Value                                                         |
 | ------------------------ | ------ | -------- | ------------------------------------------------------------- |
-| chart_version            | string | yes      | Version of the Helm Chart                                     |
+| helm_chart_version       | string | yes      | Version of the Helm Chart                                     |
 | helm_namespace           | string | yes      | The namespace Helm will install the chart under               |
 | helm_repository          | string | yes      | The repository where the Helm chart is stored                 |
 | helm_repository_username | string | no       | The username of the repository where the Helm chart is stored |
 | helm_repository_password | string | no       | The password of the repository where the Helm chart is stored |
 | helm_release_name        | string | no       | The release name                                              |
 | helm_chart               | string | no       | The name of the chart to use                                  |
-| projects                 | list   | no       | Defines a list of ArgoCD Projects to deploy                   |
-| values                   | string | no       | Values to be passed to the Helm Chart                         |
+| helm_values              | string | no       | Values to be passed to the Helm Chart                         |
 
 # Outputs
 
@@ -62,9 +61,10 @@ task k3d:test
 
 ## History
 
-| Date     | Release | Change                              |
-| -------- | ------- | ----------------------------------- |
-| 20220105 | v2.1.0  | Alllow to pass different containers |
-| 20211206 | v2.0.0  | Refactor and addition of tests      |
-| 20211011 | v1.0.1  | Add kustomize build options         |
-| 20210719 | v1.0.0  | Initial v1.0.0 release              |
+| Date     | Release | Change                                 |
+| -------- | ------- | -------------------------------------- |
+| 20220908 | v3.1.0  | Align with upstream helm chart changes |
+| 20220105 | v2.1.0  | Allow to pass different containers     |
+| 20211206 | v2.0.0  | Refactor and addition of tests         |
+| 20211011 | v1.0.1  | Add kustomize build options            |
+| 20210719 | v1.0.0  | Initial v1.0.0 release                 |
