@@ -19,7 +19,7 @@ variable "helm_repository_username" {
 }
 
 variable "helm_chart_version" {
-  default = "0.1.2"
+  default = "0.4.0"
 }
 
 variable "helm_values" {
