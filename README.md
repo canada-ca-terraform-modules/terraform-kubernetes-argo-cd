@@ -63,6 +63,7 @@ task k3d:test
 
 | Date     | Release | Change                                 |
 | -------- | ------- | -------------------------------------- |
+| 20230202 | v3.0.1  | Specify sensitive variables            |
 | 20220908 | v3.0.0  | Align with upstream helm chart changes |
 | 20220105 | v2.1.0  | Allow to pass different containers     |
 | 20211206 | v2.0.0  | Refactor and addition of tests         |
